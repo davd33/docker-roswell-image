@@ -8,6 +8,7 @@ RUN apt-get install -y jq
 RUN apt-get install -y libcurl3-gnutls
 RUN apt-get install -y bzip2
 RUN apt-get install -y make
+RUN apt-get install -y scp
 
 RUN curl -sOL `curl -s https://api.github.com/repos/roswell/roswell/releases/latest | jq -r '.assets | .[] | select(.name|test("deb$")) | .browser_download_url'`
 RUN dpkg -i roswell*.deb
